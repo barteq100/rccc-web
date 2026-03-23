@@ -66,9 +66,40 @@ Primary environment variables:
 - Add practical loading, empty, and error states for each major screen.
 - Prefer interaction-focused tests over shallow snapshots.
 
+## Required Skills And Owning Agent
+
+Primary skill:
+
+- `rccc-web-frontend`
+
+Supporting skills:
+
+- `frontend-skill`
+- `rccc-contracts`
+- `rccc-handoffs-json`
+- `rccc-testing`
+- `rccc-git-pr`
+
+Expected owning agent:
+
+- `frontend-agent`
+
+Invoke supporting skills when:
+
+- the task needs UI direction, composition, or interaction design: `frontend-skill`
+- a shared payload or route contract changes: `rccc-contracts`
+- another agent depends on your output: `rccc-handoffs-json`
+- the task is primarily validation or interaction testing: `rccc-testing`
+- the task is complete and needs closeout: `rccc-git-pr`
 ## Coordination Rules
 
 - Before starting work, claim or update the relevant task in the root [tasks.md](../tasks.md).
+- If another agent will need your output, create or update `../handoffs/TASK-###-slug/` and record the task brief, handoff, decisions, and related files as JSON.
+- Use the shared schemas in `../handoffs/schemas/` and keep all handoff `related_files` workspace-relative.
+- When a repository task is complete, finish it with a git commit, push the branch, and open or update a pull request unless the task is explicitly documentation-only workspace coordination outside that repository.
 - If an API payload or route requirement changes, coordinate with `rccc-api` before implementing around it.
 - Do not introduce backend rules, local persistence layers, or ingestion concerns into the web app.
 - Keep MVP scope tight: no auth expansion, no resume tooling, and no AI-generated user content.
+
+
+
